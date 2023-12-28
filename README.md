@@ -1,1 +1,1 @@
-# Pr-ticas-Front-End
+# Praticas-Front-End
