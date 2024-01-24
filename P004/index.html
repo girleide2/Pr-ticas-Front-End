@@ -8,6 +8,8 @@
     <title>Agência de turismo</title>
 </head>
 <body>
+    <a href="formulario.html">formulário</a>
+
     <div class="container">
         <div class="salvador">
             <img  src="salvador.jpeg">
@@ -47,48 +49,46 @@
             <div class="preco"><h3>R$ 900,00</h3></div>
             <h6><p>Taxas inclusas <br>Em até 6x sem juros</p></h6>
             <div class="comprar">Comprar</div>
+            
         </div>
+
     </div>
 <script>
-    
     const destinos = document.querySelectorAll(".destinos");
-    const especificacao = document.getElementsByClassName(".especificacao");
-    const precos = document.getElementsByClassName(".preco");
-    const txParcelamentos = document.getElementsByClassName(".taxasParcelamento");
+    const especificacao = document.querySelectorAll(".especificacao");
+    const precos = document.querySelectorAll(".preco");
     const botao = document.querySelectorAll(".comprar");
 
     var i = 0;
 
     while (i < botao.length) {
-
-        var botoes = botao[i];
+        var bot = botao[i];
         var destino = destinos[i];
         var especifica = especificacao[i];
         var preco = precos[i];
-        var taxaeParcela = txParcelamentos[i];
 
-        botao.addEventListener('click', function() {
-            dadosPacote(destino, especifica, preco, taxaeParcela);
+        bot.addEventListener('click', function () {
+            dadosPacote(destino, especifica, preco);
         });
 
         i++;
     }
 
-    function dadosPacote(destino, especifica, preco, taxaeParcela) {
-    var objetoJSON = {
-        "Destino": destino.textContent,
-        "Especificação": [
-            especifica.textContent.split("\n")[0],
-            especifica.textContent.split("\n")[1],
-            especifica.textContent.split("\n")[2]
-        ],
-        "Preço": preco.textContent,
-        "taxasParcelamentos": taxaeParcela.textContent
-    };
+    function dadosPacote(destino, especifica, preco) {
+        var objetoJSON = {
+            "Destino": destino.textContent,
+            "Especificação": [
+                especifica.textContent.split("\n")[0],
+                especifica.textContent.split("\n")[1],
+                especifica.textContent.split("\n")[2]
+            ],
+            "Preço": preco.textContent,
+        };
 
-    var objJSON = JSON.stringify(objetoJSON);
-    console.log(JSON.parse(objJSON));
-}
+        var objJSON = JSON.stringify(objetoJSON);
+        console.log(JSON.parse(objJSON));
+    }
+
 </script>
 </body>
 </html>
