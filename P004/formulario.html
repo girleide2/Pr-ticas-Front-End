@@ -1,26 +1,93 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Noto+Serif:ital,wght@1,200&family=Nunito:wght@300&family=PT+Sans+Narrow&family=Playfair+Display&display=swap" rel="stylesheet">
+    <title>Agência de turismo</title>
 </head>
 <body>
-    <form>
-        <label for="destino"> Destino</label><br>
-        <input type="texto" id="destino" nome = "destino"><br>
-        <label for="especificacao"> Especificação</label><br>
-        <input type="texto" id="especificacao" nome = "especificacao"><br>
-        <label for="preco">Preço</label><br>
-        <input type="texto" id="preco" nome = "preco"><br>
-        <button type="button" onclick="inserirItem()">Inserir</button>
+    <form id="formularioReserva">
+        <label for="destino">Insira a URL da foto do destino</label><br>
+        <input type="foto" id="foto" name="foto" required><br><br>
+
+        <label for="destino">Destino:</label><br>
+        <input type="text" id="destino" name="destino" required><br><br>
+
+        <label for="ida">Ida e volta?</label>
+        <select id="ida" name="ida">
+            <option value="Apenas ida">Apenas Ida</option>
+            <option value="Apenas volta">Apenas volta</option>
+            <option value="Ida e Volta">Ida e Volta</option>
+            
+        </select><br><br>
+
+        <label for="diarias">Número de diárias:</label><br>
+        <input type="number" id="diarias" name="diarias" required><br>
+
+        <label for="preco">Preço:</label><br>
+        <input type="text" id="preco" name="preco" required><br>
+        <br>
+
+        <label for="cafe">Café da manhã</label>
+        <select id="cafe" name="cafe">
+            <option value="Café da manhã">Café da manhã</option>
+            <option value="S/ afé da manhã">S/ café da manhã</option>
+            
+        </select><br><br>
+        
+        <label for="taxas">Taxas inclusas:</label>
+        <select id="taxas" name="taxas">
+            <option value="inclusas">Inclusas</option>
+            <option value="Não Inclusas">Não Inclusas</option>
+        </select><br><br>
+
+        <label for="parcelas">Número de parcelas:</label>
+        <select id="parcelas" name="parcelas">
+            <option value="1x">1x</option>
+            <option value="2x">2x</option>
+            <option value="3x">3x</option>
+            <option value="4x">4x</option>
+            <option value="5x">5x</option>
+            <option value="6x">6x</option>
+        </select><br>
+        <button type="button" onclick="preencherInformacoes()">Preencher Informações</button>
     </form>
-    <div class="container"></div>
+
+    <div class="salvador">
+        <img id="infoFoto" src="salvador.jpeg">
+        <div class="destinos" id="infoDestino"><h4>destino</h4></div>
+        <ul class="especificacao" style="list-style-type: none; padding-left: 0;">
+            <li id="infoAereo">&#x2714; Aéreo ida e volta</li>
+            <li id="infoDiarias">&#x2714; 03 diárias</li>
+            <li id="infoCafe">&#x2714; Café da manhã</li>
+        </ul>
+        <div class="preco" id="infoPreco"><h3>R$ 670,00</h3></div>
+        <h6><p id="infoTaxas">Taxas inclusas</p>Em até <span id="infoParcelas"></span> sem juros</p></h6>
+        <div class="comprar">Comprar</div>
+    </div>
     <script>
-        function inserirItem(){
-            var destino = document.querySelector("#destino")
-            var especificacao = document.querySelector("#especificacao")
-            var preco = document.querySelector("#preco")
+       function preencherInformacoes() {
+
+            var foto = document.getElementById("foto").value;
+            var destino = document.getElementById("destino").value;
+            var ida = document.getElementById("ida").value;
+            var diarias = document.getElementById("diarias").value;
+            var cafe = document.getElementById("cafe").value;
+            var preco = document.getElementById("preco").value;
+            var taxas = document.getElementById("taxas").value;
+            var parcelas = document.getElementById("parcelas").value;
+
+            document.getElementById("infoFoto").src = foto
+            document.getElementById("infoDestino").innerHTML = "<h4>" + destino + "</h4>";
+            document.getElementById("infoAereo").innerHTML = "&#x2714;" + ida;
+            document.getElementById("infoDiarias").innerHTML = "&#x2714; " + diarias + " diárias";
+            document.getElementById("infoCafe").innerHTML = "&#x2714;" + cafe;
+            document.getElementById("infoPreco").innerHTML = "<h3>R$ " + preco + "</h3>";
+            document.getElementById("infoTaxas").innerHTML = "Taxas " + taxas;
+            document.getElementById("infoParcelas").innerHTML = parcelas;
         }
-    </script>
-  
+        </script>
 </body>
 </html>

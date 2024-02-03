@@ -1,3 +1,8 @@
+form{
+    background-color: rgb(212, 168, 222);
+    display: inline-block;
+    margin-left: 40%;
+}
 img{
     width: 150px;
     height: 100px;
@@ -29,18 +34,32 @@ ul,h3,h6{
     width: 50%;
     transition-duration: 0.3s;
 }
-.comprar:hover {
+.comprar:hover, button:hover, a:hover{
     background-color: #0fc315;
     color: #fff;
     transform: translateY(7px); 
     box-shadow: 0 4px 16px rgb(0, 0, 0); 
 }
-.comprar:active {
+.comprar:active, button:active {
     transform: scale(0.9);
 }
 .container{
     display: flex;
     
+}
+button, a{
+    background-color: rgb(22, 109, 22);
+    border-radius: 10px;
+    padding: 5px 5px;
+    color: rgb(255, 255, 255);
+    font-family: 'Kanit', sans-serif;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px auto;
+    width: 50%;
+    transition-duration: 0.3s;
 }
 .salvador{
     flex: 1;
