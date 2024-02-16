@@ -4,6 +4,7 @@
     <title>UESC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@1,200&family=Nunito:wght@300&family=PT+Sans+Narrow&family=Playfair+Display&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Playfair+Display&display=swap" rel="stylesheet">
@@ -16,44 +17,82 @@
         <div class = "container">
             <div class="menu">
                 <header><h3>Menu</h3></header>
-                <ul>
-                    <li><h4>Título 1</h4></li>
-                    <li><h4>Título 2</h4></li>
-                    <li><h4>Título 3</h4></li>
-                    <li>....</li>
-                    <li><h4>Título n</h4></li>
-                </ul>
             </div>
-            <div class="noticias" id="noticias">
+            <div class="noticias">
                 <header><h3>Notícias</h3></header>
-                <h4>Título 1</h4>
-                <h4><a href = https://www2.uesc.br/noticias/939/Mensagem-de-final-de-ano-da-reitoria>Subtítulo com link</a></h4>
-                <h4>Título 2</h4>
-                <h4><a href = https://www2.uesc.br/noticias/939/Mensagem-de-final-de-ano-da-reitoria>Subtítulo com link</a></h4>
+                <div id = "containerNoticias">
+                <div id="noticias">
+                    <p>Veja qual asteróide está próximo da terra hoje <i class="fa-brands fa-odysee" id="iconAstro"></i></p>
+                </div>
+                <div id="infoAst">
+                    <div id="nome">Nome:</div>
+                    <div id="magnitude">Magnitude:</div>
+                    <div id="perigo">Oferece perigo?</div>
+                    <div id="diametro">
+                        <div id="diametroMax">Diâmetro máximo:</div>
+                        <div id="diametroMin">Diâmetro Mínimo:</div>
+                    </div>
+                </div>
+            </div>
+
             </div>
             <div class="destaque">
                 <header><h3>Destaque</h3></header>
                 <div class="img1" id="imagemContainer"></div>
-                <div class="img2"><img  src="imagens/ru.png"> </div>
             </div>
         </div>
         <div class="container2">
-            <div class="serviços">
+            <div class="serviços" id = 'serviços'>
                 <header><h3>Serviços</h3></header>
-                <h4>Título 1</h4>
-                <h4><a href = https://www2.uesc.br/noticias/939/Mensagem-de-final-de-ano-da-reitoria>Subtítulo com link</a></h4>
-                <h4>Título 2</h4>
-                <h4><a href = https://www2.uesc.br/noticias/939/Mensagem-de-final-de-ano-da-reitoria>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </a></h4>
+                <div id="prev">
+                    <form id="search">
+                        <input type="search" id="nomeCidade" nome="cidade" placeholder="Buscar Cidade">
+                        <button type="submit" id="botao">
+                            <i class="fa-solid fa-magnifying-glass-location"></i>
+                        </button><b>
+                    </form>
+                    <div id="alert"></div>
+                    <h1 id="titulo">Ilheus-Ba</h1>
+                    <div id="infos">
+                        <div id="temp">
+                            <img id="imgTemp" src="http://openweathermap.org/img/wn/04d@2x.png" alt="">
+                            <div>
+                                <p id="valorTempo">
+                                30<sup>ºC</sup><b></b></p>
+                                <p id="descrição">
+                                    Ensolarado</p>
+                            </div>
+                        </div>
+                        <div id="outrasInfo">
+                            <div class="info">
+                                <i id="tempMaxIcon" class="fa-solid fa-temperature-three-quarters"></i>
+                                <div><h2>Temp. max</h2></div>
+                                <p id="tempmax">32<sup>ºC</sup></p>
+                            </div>
+                            <div class="info">
+                                <i id="tempMinIcon" class="fa-solid fa-temperature-three-quarters"></i>
+                                <div><h2>Temp. min</h2></div>
+                                <p id="tempmin">28<sup>ºC</sup></p>
+                            </div>
+                            <div class="info">
+                                <i id="umdIcon" class="fa-solid fa-droplet"></i>
+                                <div><h2>Umidade</h2></div>
+                                <p id="umid">50%</p>
+                            </div>
+                            <div class="info">
+                                <i id="ventoIcon" class="fa-solid fa-wind"></i>
+                                <div><h2>Vento</h2></div>
+                                <p id="vento">20 km/h</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="Resultados">
                 <header><h3>Resultados</h3></header>
                 <h4>Título 1</h4>
-                <h4><a href = https://www2.uesc.br/noticias/939/Mensagem-de-final-de-ano-da-reitoria>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </a></h4>
-                <h4>Título 2</h4>
-                <h4><a href = https://www2.uesc.br/noticias/939/Mensagem-de-final-de-ano-da-reitoria>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </a></h4>
+                
             </div>
         </div>
         <div>
