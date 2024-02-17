@@ -1,0 +1,50 @@
+<div class="serviços" id='serviços'>
+  <header>
+    <h3>Serviços</h3>
+  </header>
+  <div id="prev">
+    <form id="search" (submit)="buscarDados($event)">
+      <input type="search" id="nomeCidade" name="cidade" placeholder="Buscar Cidade" [(ngModel)]="nomeCidade" />
+      <button type="submit" id="botao">
+        <i class="fa-solid fa-magnifying-glass-location"></i>
+      </button>
+      <b></b>
+    </form>
+    <div id="alert">{{ mensagemAlerta }}</div>
+    <h1 id="titulo">{{ cidade }}, {{ pais }}</h1>
+    <div id="infos">
+      <div id="temp">
+        <img id="imgTemp" [src]="'https://openweathermap.org/img/wn/' + iconeTempo + '@2x.png'" alt="" />
+        <div>
+          <p id="valorTempo">
+            {{ temperatura.toFixed(1).toString().replace('.', ',') }}<sup>ºC</sup>
+            <b></b>
+          </p>
+          <p id="descrição">{{ descricao }}</p>
+        </div>
+      </div>
+      <div id="outrasInfo">
+        <div class="info">
+          <i id="tempMaxIcon" class="fa-solid fa-temperature-three-quarters"></i>
+          <div><h2>Temp. max</h2></div>
+          <p id="tempmax">{{ temperaturaMax.toFixed(1).toString().replace('.', ',') }}<sup>C°</sup></p>
+        </div>
+        <div class="info">
+          <i id="tempMinIcon" class="fa-solid fa-temperature-three-quarters"></i>
+          <div><h2>Temp. min</h2></div>
+          <p id="tempmin">{{ temperaturaMin.toFixed(1).toString().replace('.', ',') }}<sup>C°</sup></p>
+        </div>
+        <div class="info">
+          <i id="umdIcon" class="fa-solid fa-droplet"></i>
+          <div><h2>Umidade</h2></div>
+          <p id="umid">{{ umidade }}%</p>
+        </div>
+        <div class="info">
+          <i id="ventoIcon" class="fa-solid fa-wind"></i>
+          <div><h2>Vento</h2></div>
+          <p id="vento">{{ vento.toFixed(1).replace('.', ',') }} km/h</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

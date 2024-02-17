@@ -1,0 +1,38 @@
+h3{
+    font-family: 'Nunito', sans-serif;
+    background-color: rgb(255, 255, 255);
+    margin-top: 0;
+    border: solid 0.1px rgba(105, 105, 179, 0.677);
+}
+.Resultados{
+    background-color: rgba(105, 105, 179, 0.677);
+    font-family: 'PT Sans Narrow', sans-serif;
+    height: 500px;
+}
+#concurso{
+    font-size: 20px;
+    text-align: center;
+}
+#joke{
+    background-color: aliceblue;
+    border-radius: 15px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+#resposta{
+    background-color: rgb(213, 223, 231);
+    border-radius: 19px;
+    margin-left: 120px;
+    margin-right: 120px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+#piada{
+    text-align: center;
+    color: #210c38;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: medium;
+}

@@ -1,0 +1,43 @@
+h3{
+    font-family: 'Nunito', sans-serif;
+    background-color: rgb(255, 255, 255);
+    margin-top: 0;
+    border: solid 0.1px rgba(105, 105, 179, 0.677);
+}
+.noticias{
+    background-color: rgb(122, 122, 229);
+    font-family: 'PT Sans Narrow', sans-serif;
+    height: 360px; 
+}
+#containerNoticias{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: 600;
+    color: #210c38;
+    background-color: rgb(233, 233, 233);
+    border-radius: 15px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 10px;
+    margin-top: 60px;
+}
+#nome, #magnitude, #perigo, #diametroMax, #diametroMin {
+    background-color: rgba(199, 199, 230, 0.884);
+    border-radius: 15px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 10px
+}
+#noticias{
+    font-family: 'Playfair Display', serif;
+    color: rgb(0, 0, 0);
+    background-color: white;
+    border-top-left-radius: 15px;
+}
+
+#infoAst{
+    font-family: 'PT Sans Narrow', sans-serif;
+    justify-content: center;
+    align-items: center;
+}

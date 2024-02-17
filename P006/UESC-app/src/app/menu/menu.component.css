@@ -1,0 +1,11 @@
+h3{
+    font-family: 'Nunito', sans-serif;
+    background-color: rgb(255, 255, 255);
+    margin-top: 0;
+    border: solid 0.1px rgba(105, 105, 179, 0.677);
+}
+.menu{
+    background-color: rgba(105, 105, 179, 0.677);
+    font-family: 'PT Sans Narrow', sans-serif;
+    height: 360px; 
+}
