@@ -72,7 +72,7 @@ showInfo(json: any): void {
 }
 
   showAlert(alertElement: Element | null, mensagem: string): void {
-    this.mensagemAlerta = mensagem;
+    this.mensagemAlerta = mensagem; 
     if (alertElement) {
       alertElement.innerHTML = mensagem;
       alertElement.classList.add('show');
