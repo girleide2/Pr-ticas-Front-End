@@ -35,9 +35,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
+//classe servicos
 var searchButton = document.querySelector("#search");
 searchButton === null || searchButton === void 0 ? void 0 : searchButton.addEventListener("submit", function (event) { return __awaiter(_this, void 0, void 0, function () {
-    var nomeCidadeInput, nomeCidade, apiKey, apiUrl, results, json, alertElement, tituloElement, valorTempoElement, descricaoElement, imgTempElement, tempMaxElement, tempMinElement, humidElement, ventoElement, error_1;
+    var nomeCidadeInput, nomeCidade, apiKey, apiUrl, results, json, alertElement, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -62,14 +63,6 @@ searchButton === null || searchButton === void 0 ? void 0 : searchButton.addEven
                 json = _a.sent();
                 if (json.cod === 200) {
                     alertElement = document.querySelector('#alert');
-                    tituloElement = document.querySelector('#titulo');
-                    valorTempoElement = document.querySelector('#valorTempo');
-                    descricaoElement = document.querySelector('#descrição');
-                    imgTempElement = document.querySelector('#imgTemp');
-                    tempMaxElement = document.querySelector('#tempmax');
-                    tempMinElement = document.querySelector('#tempmin');
-                    humidElement = document.querySelector('#humid');
-                    ventoElement = document.querySelector('#vento');
                     showAlert(alertElement, '');
                     showInfo({
                         city: json.name,
@@ -81,7 +74,7 @@ searchButton === null || searchButton === void 0 ? void 0 : searchButton.addEven
                         tempIcon: json.weather[0].icon,
                         windSpeed: json.wind.speed,
                         humidity: json.main.humidity,
-                    }, tituloElement, valorTempoElement, descricaoElement, imgTempElement, tempMaxElement, tempMinElement, humidElement, ventoElement);
+                    });
                 }
                 else {
                     showAlert(document.querySelector('#alert'), "Cidade não localizada");
@@ -96,7 +89,15 @@ searchButton === null || searchButton === void 0 ? void 0 : searchButton.addEven
         }
     });
 }); });
-function showInfo(json, tituloElement, valorTempoElement, descricaoElement, imgTempElement, tempMaxElement, tempMinElement, humidElement, ventoElement) {
+function showInfo(json) {
+    var tituloElement = document.querySelector('#titulo');
+    var valorTempoElement = document.querySelector('#valorTempo');
+    var descricaoElement = document.querySelector('#descrição');
+    var imgTempElement = document.querySelector('#imgTemp');
+    var tempMaxElement = document.querySelector('#tempmax');
+    var tempMinElement = document.querySelector('#tempmin');
+    var humidElement = document.querySelector('#humid');
+    var ventoElement = document.querySelector('#vento');
     if (tituloElement) {
         tituloElement.innerHTML = "".concat(json.city, ", ").concat(json.country);
     }
@@ -128,23 +129,44 @@ function showAlert(alertElement, mensagem) {
         alertElement.classList.add('show');
     }
 }
-// classe nasa
+// classe APInasa
 var ApiNasa = function () { return __awaiter(_this, void 0, void 0, function () {
-    var d, dataFormatada, apiChave, Url, results, jsonNasa, asteroidasDoDia, error_2;
+    var d, dataFormatada, apiChave, Url, ApiImagens, results, img, jsonNasa, jsonImg, imgNasa, asteroidasDoDia, error_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _a.trys.push([0, 3, , 4]);
+                _a.trys.push([0, 5, , 6]);
                 d = new Date();
                 dataFormatada = "".concat(d.getFullYear(), "-").concat((d.getMonth() + 1) < 10 ? '0' : '').concat(d.getMonth() + 1, "-").concat(d.getDate() < 10 ? '0' : '').concat(d.getDate());
                 apiChave = "K70dIzaMyX5Oz8ddlgDWqxtQGawWJjfeIvjlhVIr";
                 Url = "https://api.nasa.gov/neo/rest/v1/feed?start_date=".concat(dataFormatada, "&end_date=").concat(dataFormatada, "&api_key=").concat(apiChave);
+                ApiImagens = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=".concat(apiChave);
                 return [4 /*yield*/, fetch(Url)];
             case 1:
                 results = _a.sent();
-                return [4 /*yield*/, results.json()];
+                return [4 /*yield*/, fetch(ApiImagens)];
             case 2:
+                img = _a.sent();
+                return [4 /*yield*/, results.json()];
+            case 3:
                 jsonNasa = _a.sent();
+                return [4 /*yield*/, img.json()];
+            case 4:
+                jsonImg = _a.sent();
+                console.log(jsonImg);
+                console.log(jsonNasa);
+                imgNasa = jsonImg.photos;
+                if (imgNasa && imgNasa.length > 0) {
+                    showImg({
+                        img1: imgNasa[5].img_src,
+                        img2: imgNasa[60].img_src,
+                        img3: imgNasa[50].img_src,
+                        img4: imgNasa[14].img_src,
+                    });
+                }
+                else {
+                    console.log("Dados insuficientes para extrair a imagem");
+                }
                 asteroidasDoDia = jsonNasa.near_earth_objects[dataFormatada];
                 if (asteroidasDoDia && asteroidasDoDia.length > 2) {
                     showInfoNasa({
@@ -158,15 +180,29 @@ var ApiNasa = function () { return __awaiter(_this, void 0, void 0, function () 
                 else {
                     console.log("Dados insuficientes para extrair o nome do asteroide.");
                 }
-                return [3 /*break*/, 4];
-            case 3:
+                return [3 /*break*/, 6];
+            case 5:
                 error_2 = _a.sent();
                 console.error("Erro durante a requisição à API da NASA:", error_2);
-                return [3 /*break*/, 4];
-            case 4: return [2 /*return*/];
+                return [3 /*break*/, 6];
+            case 6: return [2 /*return*/];
         }
     });
 }); };
+function showImg(json) {
+    var img1Element = document.querySelector('#img1');
+    var img2Element = document.querySelector('#img2');
+    var img3Element = document.querySelector('#img3');
+    var img4Element = document.querySelector('#img4');
+    if (img1Element)
+        img1Element.src = json.img1;
+    if (img2Element)
+        img2Element.src = json.img2;
+    if (img3Element)
+        img3Element.src = json.img3;
+    if (img4Element)
+        img4Element.src = json.img4;
+}
 function showInfoNasa(json) {
     var nomeElement = document.querySelector('#nome');
     var magnitudeElement = document.querySelector('#magnitude');
@@ -185,3 +221,45 @@ function showInfoNasa(json) {
         diametroMinElement.innerHTML = "Di\u00E2metro M\u00EDnimo: ".concat(json.diametroMin.toFixed(1).replace('.', ','), " Km");
 }
 ApiNasa();
+var apiJoke = function () { return __awaiter(_this, void 0, void 0, function () {
+    var apiJokeURL, results, jsonJoke, error_3;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 3, , 4]);
+                apiJokeURL = 'https://v2.jokeapi.dev/joke/Any?safe-mo';
+                return [4 /*yield*/, fetch(apiJokeURL)];
+            case 1:
+                results = _a.sent();
+                return [4 /*yield*/, results.json()];
+            case 2:
+                jsonJoke = _a.sent();
+                console.log(jsonJoke);
+                if (jsonJoke && jsonJoke.error === false) {
+                    showDados({
+                        joke: jsonJoke.setup,
+                        resposta: jsonJoke.delivery,
+                    });
+                }
+                else {
+                    console.log("Erro");
+                }
+                return [3 /*break*/, 4];
+            case 3:
+                error_3 = _a.sent();
+                console.error(error_3);
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
+        }
+    });
+}); };
+function showDados(json) {
+    console.log(json);
+    var jokeElement = document.querySelector('#joke');
+    var respostaElement = document.querySelector('#resposta');
+    if (jokeElement)
+        jokeElement.innerHTML = "".concat(json.joke);
+    if (respostaElement)
+        respostaElement.innerHTML = "".concat(json.resposta);
+}
+apiJoke();
