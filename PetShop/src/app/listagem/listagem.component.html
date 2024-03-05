@@ -1,1 +1,17 @@
-<p>listagem works!</p>
+<div class="container">
+    <label for="nome">Nome do Responsável</label>
+    <input type="text" id="nome" [(ngModel)]="nomeFiltrado" />
+    <button (click)="carregarServicos()">Listar Atendimentos</button>
+  
+    <div *ngIf="servicos && servicos.length > 0">
+      <h2>Serviços</h2>
+      <ul>
+        <li *ngFor="let servico of servicos">
+          {{ servico.nomePet }} - {{ servico.servico }} - {{ servico.valor }}
+          <button (click)="mostrarDetalhes(servico)">Detalhes</button>
+        </li>
+      </ul>
+    </div>
+    <app-detalhes-atendimento [detalhesAtendimento]="detalhesAtendimento"></app-detalhes-atendimento>
+</div>
+  

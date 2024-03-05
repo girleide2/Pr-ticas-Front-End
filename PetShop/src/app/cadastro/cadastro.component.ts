@@ -5,17 +5,19 @@ import { BancoBackService } from '../banco-back.service';
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
-  styleUrl: './cadastro.component.css'
+  styleUrls: ['./cadastro.component.css']
 })
 export class CadastroComponent {
-  constructor(private bancoBack: BancoBackService){
+  constructor(private bancoBack: BancoBackService) {}
 
-  }
+  submitForm(form: NgForm) {
+    let { nome, cpf, nomePet, servico, valor, horario } = form.value;
 
-  submitForm(form: NgForm){
-    let{nome, cpf, nomePet, servico, valor, horario} = form.value;
+    if (servico === undefined) {
+        servico = 'Serviço não selecionado';
+    }
+
     console.log(nome, cpf, nomePet, servico, valor, horario);
-    let atendimento = {nome, cpf, nomePet, servico, valor, horario};
-    this.bancoBack.cadastroDeAtendimento(atendimento);
+    this.bancoBack.cadastroDeAtendimento({ nome, cpf, nomePet, servico, valor, horario });
   }
 }

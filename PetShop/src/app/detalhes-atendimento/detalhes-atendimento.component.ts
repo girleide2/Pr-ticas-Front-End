@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-detalhes-atendimento',
   templateUrl: './detalhes-atendimento.component.html',
-  styleUrl: './detalhes-atendimento.component.css'
+  styleUrls: ['./detalhes-atendimento.component.css']
 })
 export class DetalhesAtendimentoComponent {
-
+  @Input() detalhesAtendimento: any;
 }

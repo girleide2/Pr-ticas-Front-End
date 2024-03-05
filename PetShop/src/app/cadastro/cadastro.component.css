@@ -1,0 +1,32 @@
+#formulario{
+    display: flex;
+    flex-direction: column;
+}
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffe29a;
+    height: 50px;
+    width: 300px;
+    border-start-end-radius: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color: rgb(85, 85, 85);
+    margin-bottom: 15px;
+}
+button{
+    transition: background-color 0.3s ease, transform 0.5s ease, cursor 0.3s ease;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #5d2a42;
+    transform: scale(0.9);
+}
+
+button:active, button:focus {
+    background-color: #f88863;
+    transform: scale(0.9);
+    outline: none; 
+}

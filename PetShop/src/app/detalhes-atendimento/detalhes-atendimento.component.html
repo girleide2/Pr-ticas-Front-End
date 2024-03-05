@@ -1,1 +1,10 @@
-<p>detalhes-atendimento works!</p>
+<div class="lista" *ngIf="detalhesAtendimento">
+    <h2>Detalhes do Atendimento</h2>
+    <p>Nome: {{ detalhesAtendimento.nome }}</p>
+    <p>CPF: {{ detalhesAtendimento.cpf }}</p>
+    <p>Nome do Pet: {{ detalhesAtendimento.nomePet }}</p>
+    <p>Serviço: {{ detalhesAtendimento.servico }}</p>
+    <p>Valor: {{ detalhesAtendimento.valor }}</p>
+    <p>Horário: {{ detalhesAtendimento.horario }}</p>
+</div>
+  

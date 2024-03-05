@@ -1,1 +1,16 @@
-<app-cadastro></app-cadastro>
+<header class="cabecalho">
+    <h2>PetShop Doguinho Caramelo</h2>
+</header>
+<div class="dog-container"><img class="dog" src="assets/dog.jpg" alt="dog"></div>
+<div class="components">
+    <button (click)="mostrarCadastro()">Cadastro</button>
+    <button (click)="mostrarListagem()">Lista de Atendimentos</button>
+    <button (click)="mostrarEditarCadastro()">Editar Atendimentos</button>
+</div>
+
+<div class="resultado">
+    <app-cadastro *ngIf="mostrarComponente === 'cadastro'"></app-cadastro>
+    <app-listagem *ngIf="mostrarComponente === 'listagem'"></app-listagem>
+    <app-detalhes-atendimento *ngIf="mostrarComponente === 'detalhes'"></app-detalhes-atendimento>
+    <app-editar-cadastro *ngIf="mostrarComponente === 'editarCadastro'"></app-editar-cadastro>
+</div>

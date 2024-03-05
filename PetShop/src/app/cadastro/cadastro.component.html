@@ -1,21 +1,38 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap" rel="stylesheet">
-
 <form (ngSubmit)="submitForm(form)" #form="ngForm">
     <div class="title">Cadastro de atendimento</div>
     <div id="formulario">
-        <div><input name="nome" placeholder="Nome Completo do responsável" ngModel><br></div>
-        <div><input name="cpf" placeholder="CPF do responsável" ngModel><br></div>
-        <div><input name="nomePet" placeholder="Nome do Pet" ngModel><br></div>
-        <select name="servico" aria-placeholder="Tipo de Serviço">
-            <option value="TosaBanho">Tosa e Banho</option>
-            <option value="banho">Apenas banho</option>
-            <option value="tosa">Apenas tosa</option>   
-            <option value="vacinacao">Vacinação</option>   
-        </select>
-        <div><input name="valor" placeholder="Valor"  ngModel><br></div>
-        <div><input name="horario" placeholder="Horário" ngModel><br></div>
-        <div><button id="submeter" type="submit">Submeter</button></div>
+      <mat-form-field>
+        <input matInput name="nome" placeholder="Nome Completo do responsável" ngModel>
+      </mat-form-field>
+      
+      <mat-form-field>
+        <input matInput name="cpf" placeholder="CPF do responsável" ngModel>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput name="nomePet" placeholder="Nome do Pet" ngModel>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Tipo de Serviço</mat-label>
+        <mat-select name="servico" ngModel>
+          <mat-option value="TosaBanho">Tosa e Banho</mat-option>
+          <mat-option value="banho">Apenas banho</mat-option>
+          <mat-option value="tosa">Apenas tosa</mat-option>
+          <mat-option value="vacinacao">Vacinação</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput name="valor" placeholder="Valor" ngModel>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input matInput name="horario" placeholder="Horário" ngModel>
+      </mat-form-field>
+  
+      <button mat-button type="submit">Submeter</button>
+
     </div>
-</form>
+  </form>
+  
