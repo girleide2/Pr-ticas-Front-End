@@ -6,7 +6,7 @@ import { Component, Renderer2, ElementRef } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  mostrarComponente: string = 'cadastro';
+  mostrarComponente: any;
 
   constructor(private renderer: Renderer2, private el: ElementRef) {}
 
