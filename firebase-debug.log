@@ -1,0 +1,21 @@
+[debug] [2024-03-08T04:00:42.692Z] ----------------------------------------------------------------------
+[debug] [2024-03-08T04:00:42.703Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\girle\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-03-08T04:00:42.704Z] CLI Version:   13.4.1
+[debug] [2024-03-08T04:00:42.705Z] Platform:      win32
+[debug] [2024-03-08T04:00:42.705Z] Node Version:  v20.10.0
+[debug] [2024-03-08T04:00:42.705Z] Time:          Fri Mar 08 2024 01:00:42 GMT-0300 (Horário Padrão de Brasília)
+[debug] [2024-03-08T04:00:42.705Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-03-08T04:00:42.715Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-03-08T04:00:42.716Z] > authorizing via signed-in user (girleide.macario@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\girle\Desktop\Residencia\MODULO 3\FRONTEND\Praticas-Front-End
+
