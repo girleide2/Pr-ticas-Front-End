@@ -10,7 +10,7 @@
     <ul>
       <li *ngFor="let servico of servicos">
         {{ servico.nomePet }} - {{ servico.servico }} - {{ servico.valor }}
-        <button (click)="mostrarFormulario(); editarAtendimento(servico.id)">Editar</button>
+        <button (click)="mostrarFormulario();">Editar</button>
       </li>
     </ul>
   </div>
@@ -19,7 +19,7 @@
     <div class="title">Edição de atendimento</div>
     <div id="formulario">
       <mat-form-field>
-        <input matInput formControlName="novoNome" placeholder="novoNome" />
+        <input matInput formControlName="novoNome" placeholder="Novo Nome" />
       </mat-form-field>
 
       <mat-form-field>

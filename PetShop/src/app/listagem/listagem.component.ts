@@ -1,4 +1,3 @@
-// listagem.component.ts
 import { Component } from '@angular/core';
 import { BancoBackService } from '../banco-back.service';
 

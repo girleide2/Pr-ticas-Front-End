@@ -1,4 +1,3 @@
-// editar-cadastro.component.ts
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BancoBackService } from '../banco-back.service';
@@ -39,7 +38,9 @@ export class EditarCadastroComponent {
     console.log("id-->" + id);
     this.bancoBack.editarAtendimento(id).subscribe(responseData => {
       console.log(responseData);
-      this.editar.setValue(responseData);
+      if (responseData && responseData.novoNome) {
+        this.editar.setValue(responseData);
+      }
     });
   }
 
@@ -47,15 +48,8 @@ export class EditarCadastroComponent {
     this.bancoBack.editar(this.id, this.editar.value).subscribe(responseData => {
       if (responseData.status == 200) {
         this.editadoSucesso = true;
-        this.rediracionaPrincipal();
       }
     });
-  }
-
-  rediracionaPrincipal() {
-    setTimeout(() => {
-      this.router.navigate(['listagem']);
-    }, 2000);
   }
 
   carregarServicos() {
