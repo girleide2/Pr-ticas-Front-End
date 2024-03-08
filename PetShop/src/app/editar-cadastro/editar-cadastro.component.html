@@ -1,59 +1,55 @@
 <div class="container">
-    <label for="nome">Digite o Nome do Responsável</label>
-    <input type="text" id="nome" [(ngModel)]="nomeFiltrado" />
-    <button (click)="carregarServicos()">Listar Atendimentos</button>
-  
-    <div *ngIf="servicos && servicos.length > 0">
-      <h2>Atendimentos disponíveis:</h2>
-      <ul>
-        <li *ngFor="let servico of servicos">
-          {{ servico.nomePet }} - {{ servico.servico }} - {{ servico.valor }}
-          <button (click)="mostrarDetalhes(servico)">Editar</button>
-        </li>
-      </ul>
+  <label for="nome">Digite o Nome do Responsável</label>
+  <input type="text" id="nome" [value]="nomeFiltrado" (input)="atualizarNomeFiltrado($event)" />
+
+
+  <button (click)="carregarServicos()">Listar Atendimentos</button>
+
+  <div *ngIf="servicos && servicos.length > 0">
+    <h2>Atendimentos disponíveis:</h2>
+    <ul>
+      <li *ngFor="let servico of servicos">
+        {{ servico.nomePet }} - {{ servico.servico }} - {{ servico.valor }}
+        <button (click)="mostrarFormulario(); editarAtendimento(servico.id)">Editar</button>
+      </li>
+    </ul>
+  </div>
+
+  <form *ngIf="exibirFormularioEdicao" [formGroup]="editar" (ngSubmit)="salvaret()" class="edita">
+    <div class="title">Edição de atendimento</div>
+    <div id="formulario">
+      <mat-form-field>
+        <input matInput formControlName="novoNome" placeholder="novoNome" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput formControlName="novoCpf" placeholder="CPF do responsável" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput formControlName="novoNomePet" placeholder="Nome do Pet" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Tipo de Serviço</mat-label>
+        <mat-select formControlName="novoServico">
+          <mat-option value="TosaBanho">Tosa e Banho</mat-option>
+          <mat-option value="banho">Apenas banho</mat-option>
+          <mat-option value="tosa">Apenas tosa</mat-option>
+          <mat-option value="vacinacao">Vacinação</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput formControlName="novoValor" placeholder="Valor" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput formControlName="novoHorario" placeholder="Horário" />
+      </mat-form-field>
+
+      <button mat-button type="submit">Submeter</button>
+      <span *ngIf="editadoSucesso">Formulário Editado com sucesso!</span>
     </div>
-
-    <form (ngSubmit)="submitForm(form)" #form="ngForm">
-
-        <div class="title">Edição de atendimento</div>
-        <div id="formulario">
-          <mat-form-field>
-            <input matInput name="novoNome" placeholder="novoNome" ngModel>
-          </mat-form-field>
-          
-          <mat-form-field>
-            <input matInput name="novoCpf" placeholder="CPF do responsável" ngModel>
-          </mat-form-field>
-      
-          <mat-form-field>
-            <input matInput name="novoNomePet" placeholder="Nome do Pet" ngModel>
-          </mat-form-field>
-      
-          <mat-form-field>
-            <mat-label>Tipo de Serviço</mat-label>
-            <mat-select name="novoServico" ngModel>
-              <mat-option value="TosaBanho">Tosa e Banho</mat-option>
-              <mat-option value="banho">Apenas banho</mat-option>
-              <mat-option value="tosa">Apenas tosa</mat-option>
-              <mat-option value="vacinacao">Vacinação</mat-option>
-            </mat-select>
-          </mat-form-field>
-      
-          <mat-form-field>
-            <input matInput name="novoValor" placeholder="Valor" ngModel>
-          </mat-form-field>
-      
-          <mat-form-field>
-            <input matInput name="novoHorario" placeholder="Horário" ngModel>
-          </mat-form-field>
-      
-          <button mat-button type="submit">Submeter</button>
-    
-        </div>
-      </form>
-      
-    
+  </form>
 </div>
-
-  
-

@@ -1,31 +1,61 @@
+// editar-cadastro.component.ts
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BancoBackService } from '../banco-back.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-editar-cadastro',
   templateUrl: './editar-cadastro.component.html',
-  styleUrl: './editar-cadastro.component.css'
+  styleUrls: ['./editar-cadastro.component.css']
 })
 export class EditarCadastroComponent {
   dadosPetShop: any[] = [];
   servicos: any[] = [];
   nomeFiltrado: string = '';
   detalhesAtendimento: any;
-  novoAtendimento: any;
-  editar: boolean = false;
+  editar!: FormGroup;
+  id: string = '';
+  editadoSucesso: boolean = false;
+  exibirFormularioEdicao: boolean = false;
 
-  constructor(private bancoBack: BancoBackService) {}
+  constructor(private formBuilder: FormBuilder, private bancoBack: BancoBackService, private router: Router, private route: ActivatedRoute) {}
 
-  submitForm(form: NgForm) {
-    let { nome, cpf, nomePet, servico, valor, horario } = form.value;
+  ngOnInit() {
+    this.editar = this.formBuilder.group({
+      novoNome: ['', Validators.required],
+      novoCpf: ['', Validators.required],
+      novoNomePet: ['', Validators.required],
+      novoServico: ['', Validators.required],
+      novoValor: ['', Validators.required],
+      novoHorario: ['', Validators.required],
+    });
+    this.id = this.route.snapshot.paramMap.get('id')!;
+    this.editarAtendimento(this.id);
+  }
+  
 
-    if (servico === undefined) {
-        servico = 'Serviço não selecionado';
-    }
+  editarAtendimento(id: any) {
+    console.log("id-->" + id);
+    this.bancoBack.editarAtendimento(id).subscribe(responseData => {
+      console.log(responseData);
+      this.editar.setValue(responseData);
+    });
+  }
 
-    console.log(nome, cpf, nomePet, servico, valor, horario);
-    this.bancoBack.cadastroDeAtendimento({ nome, cpf, nomePet, servico, valor, horario });
+  salvaret() {
+    this.bancoBack.editar(this.id, this.editar.value).subscribe(responseData => {
+      if (responseData.status == 200) {
+        this.editadoSucesso = true;
+        this.rediracionaPrincipal();
+      }
+    });
+  }
+
+  rediracionaPrincipal() {
+    setTimeout(() => {
+      this.router.navigate(['listagem']);
+    }, 2000);
   }
 
   carregarServicos() {
@@ -40,9 +70,11 @@ export class EditarCadastroComponent {
     return this.detalhesAtendimento;
   }
 
-  editarAtendimento(id: any) {
-    id = this.detalhesAtendimento;
-    console.log(id);
+  mostrarFormulario() {
+    this.exibirFormularioEdicao = true;
   }
 
+  atualizarNomeFiltrado(event: any) {
+    this.nomeFiltrado = event?.target?.value || '';
+  }
 }

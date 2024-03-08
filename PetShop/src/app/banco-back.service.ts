@@ -34,8 +34,21 @@ export class BancoBackService {
       );
   }
 
-  editarAtendimento(id: string, novoAtendimento: any) {
-    const url = `https://petshop-doguinho-caramelo-default-rtdb.firebaseio.com/PetShop/${id}.json`;
-    return this.http.put(url, novoAtendimento);
+  editarAtendimento(id: string) {
+    return this.http.get<any>(`https://petshop-doguinho-caramelo-default-rtdb.firebaseio.com/PetShop/${id}.json`);
   }
+
+
+  editar(id:string, Data: {   NomePassageiro: string, 
+      novoNome: string,
+      novoCpf: string,
+      novoNomePet: string,
+      novoServico: string,
+      novoValor: string,
+      novoHorario: string,
+}
+) {
+return this.http.put(`https://petshop-doguinho-caramelo-default-rtdb.firebaseio.com/PetShop/${id}.json`, Data, {observe: 'response'});
+}
+
 }
