@@ -15,7 +15,8 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { ListagemComponent } from './listagem/listagem.component';
 import { EditarCadastroComponent } from './editar-cadastro/editar-cadastro.component';
 import { DetalhesAtendimentoComponent } from './detalhes-atendimento/detalhes-atendimento.component';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { AuthFormComponent } from './auth-form/auth-form.component';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     CadastroComponent,
     ListagemComponent,
     EditarCadastroComponent,
-    DetalhesAtendimentoComponent
+    DetalhesAtendimentoComponent,
+    AuthFormComponent
   ],
   imports: [
     BrowserModule,
@@ -35,12 +37,11 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     MatFormFieldModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
-    provideAnimationsAsync()
+    AuthService,
   ],
-  bootstrap: [AppComponent],
-  
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

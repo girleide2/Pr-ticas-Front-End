@@ -1,6 +1,8 @@
 <header class="cabecalho">
     <h2>PetShop Doguinho Caramelo</h2>
 </header>
+<button class="login" (click)="mostrarLogin()">Login</button>
+<app-auth-form *ngIf="mostrarComponente === 'authForm'"></app-auth-form>
 <div class="dog-container"><img class="dog" src="assets/dog.jpg" alt="dog"></div>
 <div class="components">
     <button (click)="mostrarCadastro()">Cadastro</button>

@@ -7,6 +7,10 @@
     color: #411f2d;
 
 }
+.login{
+    width: 100px;
+}
+
 .dog-container {
     display: flex;
     justify-content: center;

@@ -1,0 +1,20 @@
+<div class="form">
+  <div>
+      <label>Email: </label>
+      <input [(ngModel)]="email" type="email" />
+    </div>
+    <div>
+      <label>Senha: </label>
+      <input [(ngModel)]="password" type="password" />
+    </div>
+    <div>
+      <button (click)="onSubmit()">
+        {{ conta ? 'Cadastrar' : 'Entrar' }}
+      </button>
+    </div>
+    <div>
+      <button (click)="toggleSignUp()">
+        {{ conta ? 'Já tem uma conta? Faça login.' : 'Não tem uma conta? Cadastre-se.' }}
+      </button>
+    </div>
+</div>

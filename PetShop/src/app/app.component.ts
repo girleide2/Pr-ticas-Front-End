@@ -22,4 +22,8 @@ export class AppComponent {
     this.mostrarComponente = 'editarCadastro';
   }
 
+  mostrarLogin() {
+    this.mostrarComponente = 'authForm';
+  }
+
 }
